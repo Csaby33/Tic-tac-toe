@@ -1,10 +1,8 @@
-
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.util.Arrays;
 
 
 public class Game extends CheckWinner implements ActionListener {
@@ -181,11 +179,16 @@ public class Game extends CheckWinner implements ActionListener {
             for (int j = 0; j < boardSize; j++) {
 
                 if (e.getSource().equals(button[i][j])) {
+                    board[i][j] = input;
                     check();
+
                     clickCount++;
 
 
-                    board[i][j] = input;
+
+                    System.out.println("boardgame ="+ board[i][j]);
+                    System.out.println(Arrays.deepToString(board));
+                    button[i][j].setText(input);
                     if (input.equals("X")) {
                         button[i][j].setForeground(Color.red);
                         playerLabel.setForeground(Color.blue);
@@ -201,7 +204,7 @@ public class Game extends CheckWinner implements ActionListener {
 
 
                     playerLabel.setText(playerStatus);
-                    button[i][j].setText(input);
+
                     //button[i][j].removeActionListener(this);
 
 
